@@ -1,0 +1,23 @@
+section.contact form { width: 100%; max-width: 1000px; padding: 10px 0px; }
+
+section.contact form input[type="text"], section.contact form textarea { resize: none; background-color: transparent; color: black; width: 100%; margin: 10px; padding: 12px 0px; box-sizing: border-box; border-bottom: 1px solid #9e9e9e; transition: border-bottom 0.15s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1); }
+
+section.contact form input[type="text"]:hover, section.contact form textarea:hover { box-shadow: 0 1px 0 0 #9e9e9e; }
+
+section.contact form input[type="text"]:focus, section.contact form textarea:focus { border-bottom: 1px solid #F95959; box-shadow: 0 1px 0 0 #F95959; }
+
+section.contact form input.name, section.contact form input.email { margin-bottom: 15px; }
+
+section.contact form input.name { margin-left: 0px; }
+
+section.contact form input.email { margin-right: 0px; }
+
+section.contact form input.subject { margin-bottom: 15px; margin-right: auto; margin-left: auto; }
+
+section.contact form textarea.message { margin-right: auto; margin-left: auto; position: relative; overflow: hidden; height: auto; }
+
+section.contact form input.submit { background-color: #F95959; color: #ffffff; float: right; min-width: 88px; height: 36px; border-radius: 2px; font-weight: 500; font-size: 14px; cursor: pointer; transition: box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1); }
+
+section.contact form input.submit:hover { box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
+
+section.contact form input.submit:active { box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }

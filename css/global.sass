@@ -1,0 +1,235 @@
+// sass --watch css/global.sass:css/global.css
+@import "variables.sass"
+
+// defaults
+html
+	body
+		background-color: white
+		margin: 0px
+		font-family: 'Roboto', Arial, sans-serif
+		color: $c-text
+	p, h1, h2, h3, h4, h5, h6
+		margin: 0px
+		font-weight: normal
+	.metadata
+		display: none
+	h1
+		font-size: 50px
+	h2
+		font-size: 35px
+	h3
+		font-size: 30px
+	h4
+		font-size: 25px
+	h5
+		font-size: 20px
+	a, a:link, a:visited, a:link:active, a:visited:active
+		text-decoration: none
+		outline: none
+		color: white
+	img
+		display: block
+	input:focus, button:focus, textarea:focus, div, p
+		outline: none
+	input, textarea, button
+		font-family: 'Roboto', Arial, sans-serif
+		border: none
+		font-size: 16px
+	input[type="range"]
+		display: none
+	.flex-row
+		display: flex
+		justify-content: center
+		flex-direction: row
+		width: 100%
+	.flex-col
+		display: flex
+		justify-content: center
+		flex-direction: column
+		height: 100%
+	.invisible
+		visibility: none
+
+header.width-limiter
+	position: relative
+	background-color: $c-accent
+	z-index: 20
+	box-shadow: $shadow-2
+	section.header
+		// align-items: center
+		height: $header-height
+		margin-left: auto
+		margin-right: auto
+		width: 100%
+		max-width: 1500px
+		justify-content: space-around
+		a
+			line-height: 120px
+			flex-basis: 120px
+			text-align: center
+			font-size: 20px
+			font-weight: 500
+			cursor: pointer
+			&::after
+				content: ""
+				background-color: $c-accent
+				height: 1px
+				display: block
+				position: relative
+				bottom: 1px
+				width: 100%
+				transform: scaleX(0)
+				transition: transform $transition, box-shadow $transition, background-color $transition
+			&:focus::after
+				transform: scaleX(0.5)
+				background-color: $c-contrast
+				box-shadow: 0 -1px 0 0 $c-contrast
+			&:hover::after
+				transform: scaleX(1)
+				background-color: $c-contrast
+				box-shadow: 0 -1px 0 0 $c-contrast
+			img
+				width: $header-content-height
+				height: $header-content-height
+				padding: 10px 10px
+
+section.body
+	z-index: 10
+	height: calc(100% - #{$header-height} - 20px)
+	padding-bottom: calc(52px + 10px)
+
+// SLIDER DEFAULTS
+div.rangeSlider
+	height: 4px
+	position: absolute
+	cursor: pointer
+	background-color: $c-contrast
+	.rangeSlider__fill
+		z-index: 2
+		background-color: $c-accent
+		height: 100%
+		position: absolute
+	.rangeSlider__handle
+		z-index: 3
+		background-color: $c-accent
+		width: 12px
+		height: 12px
+		top: -4px
+		border: none
+		border-radius: 50%
+		position: absolute
+		opacity: 0
+		transition: transform $transition, opacity $transition
+		&:after
+			display: none
+	&:hover .rangeSlider__handle, .rangeSlider__handle:hover
+		opacity: 1
+	&:active .rangeSlider__handle, .rangeSlider__handle:active
+		opacity: 1
+		transform: scale(1.2)
+
+section.music-player
+	height: 52px
+	width: 100%
+	position: fixed
+	bottom: 0
+	z-index: 30
+	$gc: #000000
+	div.gradient
+		pointer-events: none
+		width: 100%
+		height: 100%
+		position: absolute
+		bottom: 0px
+		padding-top: 40px
+		// background: linear-gradient(transparent, rgba($gc, 0.05), rgba($gc, 0.125), rgba($gc, 0.225), rgba($gc, 0.35), rgba($gc, 0.5))
+		background: linear-gradient(transparent, rgba($gc, 0.05), rgba($gc, 0.125), rgba($gc, 0.225), rgba($gc, 0.35))
+	div.rangeSlider.progress-slider
+		width: calc(100% + 12px)
+		transform: translateX(-6px)
+		bottom: 48px
+	div.controls
+		width: 100%
+		height: 48px
+		bottom: 0px
+		position: absolute
+		div.middle
+			height: 48px
+			position: absolute
+			left: 50%
+			transform: translateX(-50%)
+			display: flex
+			align-items: center
+			div
+				background-position: center
+				background-repeat: no-repeat
+				cursor: pointer
+				transition: opacity $transition
+			div.prev
+				background-image: url("/cdn/icons/skip-previous.png")
+				background-size: 30px
+				width: 28px
+				height: 28px
+			div.next
+				background-image: url("/cdn/icons/skip-next.png")
+				background-size: 30px
+				width: 28px
+				height: 28px
+			.play-pause
+				margin: 0px 12px
+				width: 36px
+				height: 36px
+				&.paused
+					background-image: url("/cdn/icons/play.png")
+					background-size: calc(48px / 1.2)
+				&.playing
+					background-image: url("/cdn/icons/pause.png")
+					background-size: calc(42px / 1.2)
+		section.volume
+			width: 148px
+			padding-left: 10px
+			height: 100%
+			position: absolute
+			right: 0px
+			.volume-slider
+				opacity: 0
+				width: 100px
+				left: 10px
+				top: 50%
+				transition: transform $transition, opacity $transition
+				transform: translateY(-50%) translateX(20%) scaleX(0.75)
+				.rangeSlider__handle
+					opacity: 1
+					width: 8px
+					height: 8px
+					top: -2px
+					transform: scale(2.25, 1.5)
+				&:active .rangeSlider__handle, .rangeSlider__handle:active
+					transform: scale(1.8)
+			.volume-icon
+				background-position: center
+				background-repeat: no-repeat
+				width: 48px
+				height: 48px
+				position: absolute
+				cursor: pointer
+				transition: opacity $transition
+				opacity: 1
+				&:hover
+					opacity: 1
+				background-size: 24px
+				background-position-x: 12px
+				right: 0px
+				&.high
+					background-image: url("/cdn/icons/volume-high.png")
+				&.mid
+					background-image: url("/cdn/icons/volume-mid.png")
+				&.low
+					background-image: url("/cdn/icons/volume-low.png")
+				&.off
+					background-image: url("/cdn/icons/volume-off.png")
+			&:hover div.volume-slider
+				transform: translateY(-50%)
+				opacity: 1
+				.rangeSlider__handle
+					transform: scale(1.5)

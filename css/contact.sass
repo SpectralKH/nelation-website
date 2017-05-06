@@ -1,0 +1,55 @@
+// sass --watch css/contact.sass:css/contact.css
+@import "variables.sass"
+
+section.contact
+	form
+		width: 100%
+		max-width: 1000px
+		padding: 10px 0px
+
+		input[type="text"], textarea
+			resize: none
+			background-color: transparent
+			color: $c-text
+			width: 100%
+			margin: 10px
+			padding: 12px 0px
+			box-sizing: border-box
+			border-bottom: 1px solid $c-border
+			transition: border-bottom $transition, box-shadow $transition
+			&:hover
+				box-shadow: 0 1px 0 0 $c-border
+			&:focus
+				border-bottom: 1px solid $c-accent
+				box-shadow: 0 1px 0 0 $c-accent
+		input.name, input.email
+			margin-bottom: 15px
+		input.name
+			margin-left: 0px
+		input.email
+			margin-right: 0px
+		input.subject
+			margin-bottom: 15px
+			margin-right: auto
+			margin-left: auto
+		textarea.message
+			margin-right: auto
+			margin-left: auto
+			position: relative
+			overflow: hidden
+			height: auto
+		input.submit
+			background-color: $c-accent
+			color: $c-contrast
+			float: right
+			min-width: 88px
+			height: 36px
+			border-radius: 2px
+			font-weight: 500
+			font-size: 14px
+			cursor: pointer
+			transition: box-shadow $transition
+			&:hover
+				box-shadow: $shadow-1
+			&:active
+				box-shadow: $shadow-2

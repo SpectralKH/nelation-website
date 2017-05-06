@@ -1,0 +1,57 @@
+header.music-filter { background-color: #37475B; padding: 10px 20px; box-sizing: border-box; }
+
+header.music-filter > div, header.music-filter input { height: 45px; background-color: transparent; box-sizing: border-box; margin: 0px 10px; color: white; }
+
+header.music-filter input.search { border-radius: 2px; min-width: 100px; width: 250px; padding: 10px; transition: box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1); background-color: rgba(255, 255, 255, 0.1); }
+
+header.music-filter input.search:hover { box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
+
+header.music-filter input.search:focus, header.music-filter input.search:active { box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
+
+header.music-filter .dropdown { width: 150px; text-align: center; line-height: 43px; background-image: url("/cdn/icons/menu-down-24.png"); background-repeat: no-repeat; background-position: 100%; cursor: pointer; }
+
+header.music-filter .dropdown p.dropdown-text { user-select: none; border-bottom: 1px solid #9e9e9e; transition: border-bottom 0.15s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1); }
+
+header.music-filter .dropdown p.dropdown-text:hover { box-shadow: 0 1px 0 0 #9e9e9e; }
+
+header.music-filter .dropdown p.dropdown-text:focus, header.music-filter .dropdown p.dropdown-text:active, header.music-filter .dropdown p.dropdown-text.open { border-bottom: 1px solid #F95959; box-shadow: 0 1px 0 0 #F95959; }
+
+header.music-filter .dropdown .menu { text-align: left; padding: 10px 0px; cursor: auto; color: black; background-color: white; position: relative; z-index: 5; top: 4px; border-radius: 2px; box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); transition: opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1), transform 0.15s cubic-bezier(0.4, 0, 0.2, 1); opacity: 0; transform: scaleY(0.5); transform-origin: top; pointer-events: none; }
+
+header.music-filter .dropdown .menu.open { pointer-events: auto; opacity: 1; transform: scaleY(1); }
+
+header.music-filter .dropdown .menu .item { line-height: 35px; padding: 0px 24px; cursor: pointer; color: rgba(0, 0, 0, 0.7); }
+
+header.music-filter .dropdown .menu .item:hover { background-color: rgba(0, 0, 0, 0.1); }
+
+header.music-filter .dropdown .menu .item.selected { color: black; }
+
+header.music-filter .genre { margin-right: 20px; }
+
+header.music-filter .sort { margin-left: auto; }
+
+section.music-tracks { flex-wrap: wrap; justify-content: flex-start; max-width: 1500px; margin: auto; padding: 10px; width: calc(100% - 20px); }
+
+section.music-tracks div.item { position: relative; margin: 10px; height: 100%; }
+
+@media (min-width: 1353px) { section.music-tracks div.item { width: calc(100%/6 - 20px); } }
+
+@media (max-width: 1353px) { section.music-tracks div.item { width: calc(100%/5 - 20px); } }
+
+@media (max-width: 1080px) { section.music-tracks div.item { width: calc(100%/4 - 20px); } }
+
+@media (max-width: 810px) { section.music-tracks div.item { width: calc(100%/3 - 20px); } }
+
+@media (max-width: 650px) { section.music-tracks div.item { width: calc(100%/2 - 20px); } }
+
+section.music-tracks div.item img { filter: brightness(200%); width: 100%; }
+
+section.music-tracks div.item div.cover-overlay { width: 100%; height: 100%; z-index: 1; position: absolute; background-color: rgba(0, 0, 0, 0.2); cursor: pointer; opacity: 0; transition: opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1); }
+
+section.music-tracks div.item div.cover-overlay:hover, section.music-tracks div.item div.cover-overlay:focus, section.music-tracks div.item div.cover-overlay:active { opacity: 1; }
+
+section.music-tracks div.item div.cover-overlay.play-button-focused { opacity: 1; }
+
+section.music-tracks div.item div.cover-overlay div.play-button { width: 48px; height: 48px; background-image: url("/cdn/icons/play.png"); background-repeat: no-repeat; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.4; transition: opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1); }
+
+section.music-tracks div.item div.cover-overlay div.play-button:hover, section.music-tracks div.item div.cover-overlay div.play-button:focus, section.music-tracks div.item div.cover-overlay div.play-button:active { opacity: 1; }

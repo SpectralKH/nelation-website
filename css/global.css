@@ -1,0 +1,105 @@
+html body { background-color: white; margin: 0px; font-family: 'Roboto', Arial, sans-serif; color: black; }
+
+html p, html h1, html h2, html h3, html h4, html h5, html h6 { margin: 0px; font-weight: normal; }
+
+html .metadata { display: none; }
+
+html h1 { font-size: 50px; }
+
+html h2 { font-size: 35px; }
+
+html h3 { font-size: 30px; }
+
+html h4 { font-size: 25px; }
+
+html h5 { font-size: 20px; }
+
+html a, html a:link, html a:visited, html a:link:active, html a:visited:active { text-decoration: none; outline: none; color: white; }
+
+html img { display: block; }
+
+html input:focus, html button:focus, html textarea:focus, html div, html p { outline: none; }
+
+html input, html textarea, html button { font-family: 'Roboto', Arial, sans-serif; border: none; font-size: 16px; }
+
+html input[type="range"] { display: none; }
+
+html .flex-row { display: flex; justify-content: center; flex-direction: row; width: 100%; }
+
+html .flex-col { display: flex; justify-content: center; flex-direction: column; height: 100%; }
+
+html .invisible { visibility: none; }
+
+header.width-limiter { position: relative; background-color: #F95959; z-index: 20; box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
+
+header.width-limiter section.header { height: 120px; margin-left: auto; margin-right: auto; width: 100%; max-width: 1500px; justify-content: space-around; }
+
+header.width-limiter section.header a { line-height: 120px; flex-basis: 120px; text-align: center; font-size: 20px; font-weight: 500; cursor: pointer; }
+
+header.width-limiter section.header a::after { content: ""; background-color: #F95959; height: 1px; display: block; position: relative; bottom: 1px; width: 100%; transform: scaleX(0); transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.15s cubic-bezier(0.4, 0, 0.2, 1); }
+
+header.width-limiter section.header a:focus::after { transform: scaleX(0.5); background-color: #ffffff; box-shadow: 0 -1px 0 0 #ffffff; }
+
+header.width-limiter section.header a:hover::after { transform: scaleX(1); background-color: #ffffff; box-shadow: 0 -1px 0 0 #ffffff; }
+
+header.width-limiter section.header a img { width: 100px; height: 100px; padding: 10px 10px; }
+
+section.body { z-index: 10; height: calc(100% - 120px - 20px); padding-bottom: calc(52px + 10px); }
+
+div.rangeSlider { height: 4px; position: absolute; cursor: pointer; background-color: #ffffff; }
+
+div.rangeSlider .rangeSlider__fill { z-index: 2; background-color: #F95959; height: 100%; position: absolute; }
+
+div.rangeSlider .rangeSlider__handle { z-index: 3; background-color: #F95959; width: 12px; height: 12px; top: -4px; border: none; border-radius: 50%; position: absolute; opacity: 0; transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1); }
+
+div.rangeSlider .rangeSlider__handle:after { display: none; }
+
+div.rangeSlider:hover .rangeSlider__handle, div.rangeSlider .rangeSlider__handle:hover { opacity: 1; }
+
+div.rangeSlider:active .rangeSlider__handle, div.rangeSlider .rangeSlider__handle:active { opacity: 1; transform: scale(1.2); }
+
+section.music-player { height: 52px; width: 100%; position: fixed; bottom: 0; z-index: 30; }
+
+section.music-player div.gradient { pointer-events: none; width: 100%; height: 100%; position: absolute; bottom: 0px; padding-top: 40px; background: linear-gradient(transparent, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.125), rgba(0, 0, 0, 0.225), rgba(0, 0, 0, 0.35)); }
+
+section.music-player div.rangeSlider.progress-slider { width: calc(100% + 12px); transform: translateX(-6px); bottom: 48px; }
+
+section.music-player div.controls { width: 100%; height: 48px; bottom: 0px; position: absolute; }
+
+section.music-player div.controls div.middle { height: 48px; position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center; }
+
+section.music-player div.controls div.middle div { background-position: center; background-repeat: no-repeat; cursor: pointer; transition: opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1); }
+
+section.music-player div.controls div.middle div.prev { background-image: url("/cdn/icons/skip-previous.png"); background-size: 30px; width: 28px; height: 28px; }
+
+section.music-player div.controls div.middle div.next { background-image: url("/cdn/icons/skip-next.png"); background-size: 30px; width: 28px; height: 28px; }
+
+section.music-player div.controls div.middle .play-pause { margin: 0px 12px; width: 36px; height: 36px; }
+
+section.music-player div.controls div.middle .play-pause.paused { background-image: url("/cdn/icons/play.png"); background-size: calc(48px / 1.2); }
+
+section.music-player div.controls div.middle .play-pause.playing { background-image: url("/cdn/icons/pause.png"); background-size: calc(42px / 1.2); }
+
+section.music-player div.controls section.volume { width: 148px; padding-left: 10px; height: 100%; position: absolute; right: 0px; }
+
+section.music-player div.controls section.volume .volume-slider { opacity: 0; width: 100px; left: 10px; top: 50%; transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1); transform: translateY(-50%) translateX(20%) scaleX(0.75); }
+
+section.music-player div.controls section.volume .volume-slider .rangeSlider__handle { opacity: 1; width: 8px; height: 8px; top: -2px; transform: scale(2.25, 1.5); }
+
+section.music-player div.controls section.volume .volume-slider:active .rangeSlider__handle, section.music-player div.controls section.volume .volume-slider .rangeSlider__handle:active { transform: scale(1.8); }
+
+section.music-player div.controls section.volume .volume-icon { background-position: center; background-repeat: no-repeat; width: 48px; height: 48px; position: absolute; cursor: pointer; transition: opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1); opacity: 1; background-size: 24px; background-position-x: 12px; right: 0px; }
+
+section.music-player div.controls section.volume .volume-icon:hover { opacity: 1; }
+
+section.music-player div.controls section.volume .volume-icon.high { background-image: url("/cdn/icons/volume-high.png"); }
+
+section.music-player div.controls section.volume .volume-icon.mid { background-image: url("/cdn/icons/volume-mid.png"); }
+
+section.music-player div.controls section.volume .volume-icon.low { background-image: url("/cdn/icons/volume-low.png"); }
+
+section.music-player div.controls section.volume .volume-icon.off { background-image: url("/cdn/icons/volume-off.png"); }
+
+section.music-player div.controls section.volume:hover div.volume-slider { transform: translateY(-50%); opacity: 1; }
+
+section.music-player div.controls section.volume:hover div.volume-slider .rangeSlider__handle { transform: scale(1.5); }
