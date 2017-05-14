@@ -1,0 +1,17 @@
+section.admin { width: 100%; position: absolute; height: calc(100% - 120px); }
+
+section.admin .menu { background-color: #37475B; width: 250px; position: relative; }
+
+section.admin .menu .track { padding: 0px 10px; }
+
+section.admin .menu .track .title { padding-top: 10px; }
+
+section.admin .menu .track .artist { padding-bottom: 10px; font-size: 14px; color: #E4E4E4; }
+
+section.admin .menu .track:hover { background-color: rgba(255, 255, 255, 0.1); }
+
+section.admin .menu .drag-bar { position: absolute; right: 0px; top: 0px; height: 100%; width: 10px; background-color: rgba(255, 255, 255, 0.2); transition: opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1); cursor: col-resize; opacity: 0; }
+
+section.admin .menu .drag-bar:hover, section.admin .menu .drag-bar:active { opacity: 1; }
+
+section.admin main { width: calc(100% - 250px); }
