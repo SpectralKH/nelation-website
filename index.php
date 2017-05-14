@@ -109,16 +109,15 @@
 		<script src="/js/ajax.js?r=<?=rand(0,999)?>"></script>
 		<script>
             <? include("js/functions.js") ?>
-            $("body").on("pageLoad", function() {
+            $(document).on("pageLoad", function() {
                 $(function() {
                     <?
                     include("js/home.js");
-                    include("js/music.js");
-                    include("js/contact.js");
+                    include("js/admin.js");
                     ?>
                 });
             });
-            $("body").trigger("pageLoad");
+            $(document).trigger("pageLoad");
 		</script>
 	</body>
 </html>

@@ -3,11 +3,13 @@
 	$css_paths = [
 		"/" => "home.css",
 		"/music" => "music.css",
+		"/admin" => "admin.css",
 		"/contact" => "contact.css"
 	];
 	$titles = [
 		"/" => "Nelation",
 		"/music" => "Music",
+		"/admin" => "Admin",
 		"/contact" => "Contact"
 	];
 
@@ -86,6 +88,11 @@
 		$string = preg_replace("/[^\w+-]/", "", $string);
 		$string = preg_replace("[-+]", "-", $string);
 		return $string;
+	}
+
+	function starts_with($haystack, $needle) {
+	    $length = strlen($needle);
+	    return (substr($haystack, 0, $length) === $needle);
 	}
 
 ?>

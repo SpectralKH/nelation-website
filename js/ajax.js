@@ -57,7 +57,7 @@ function loadPage(url) {
 			document.title = resultJSON.title;
 			// Insert page contents, then trigger the pageLoad event
 			$(target).html(page);
-			$("body").trigger("pageLoad");
+			$(document).trigger("pageLoad");
 		}
 	};
 	xhr.send();
