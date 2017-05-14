@@ -103,18 +103,17 @@ div.rangeSlider
 	height: 4px
 	position: absolute
 	cursor: pointer
-	background-color: $c-contrast
 	.rangeSlider__fill
 		z-index: 2
 		background-color: $c-accent
-		height: 100%
+		height: inherit
 		position: absolute
 	.rangeSlider__handle
 		z-index: 3
 		background-color: $c-accent
 		width: 12px
 		height: 12px
-		top: -4px
+		transform: translateY(-33.333%)
 		border: none
 		border-radius: 50%
 		position: absolute
@@ -122,11 +121,15 @@ div.rangeSlider
 		transition: transform $transition, opacity $transition
 		&:after
 			display: none
+	.rangeSlider__buffer
+		width: 100%
+		height: inherit
+		background-color: white
 	&:hover .rangeSlider__handle, .rangeSlider__handle:hover
 		opacity: 1
 	&:active .rangeSlider__handle, .rangeSlider__handle:active
 		opacity: 1
-		transform: scale(1.2)
+		transform: translateY(-33.333%) scale(1.2)
 
 section.music-player
 	height: 52px
@@ -192,6 +195,7 @@ section.music-player
 			position: absolute
 			right: 0px
 			.volume-slider
+				padding: 22px 0px
 				opacity: 0
 				width: 100px
 				left: 10px
@@ -202,10 +206,9 @@ section.music-player
 					opacity: 1
 					width: 8px
 					height: 8px
-					top: -2px
-					transform: scale(2.25, 1.5)
-				&:active .rangeSlider__handle, .rangeSlider__handle:active
-					transform: scale(1.8)
+					transform: translateY(-25%) scale(2, 1.5)
+				&:active div.rangeSlider__handle, div.rangeSlider__handle:active
+					transform: translateY(-25%) scale(1.8)
 			.volume-icon
 				background-position: center
 				background-repeat: no-repeat
@@ -228,8 +231,9 @@ section.music-player
 					background-image: url("/cdn/icons/volume-low.png")
 				&.off
 					background-image: url("/cdn/icons/volume-off.png")
-			&:hover div.volume-slider
-				transform: translateY(-50%)
-				opacity: 1
-				.rangeSlider__handle
-					transform: scale(1.5)
+			&:hover, &:active
+				.volume-slider
+					transform: translateY(-50%)
+					opacity: 1
+					.rangeSlider__handle
+						transform: translateY(-25%) scale(1.5)

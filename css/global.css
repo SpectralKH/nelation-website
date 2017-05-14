@@ -46,17 +46,19 @@ header.width-limiter section.header a img { width: 100px; height: 100px; padding
 
 section.body { z-index: 10; height: calc(100% - 120px - 20px); padding-bottom: calc(52px + 10px); }
 
-div.rangeSlider { height: 4px; position: absolute; cursor: pointer; background-color: #ffffff; }
+div.rangeSlider { height: 4px; position: absolute; cursor: pointer; }
 
-div.rangeSlider .rangeSlider__fill { z-index: 2; background-color: #F95959; height: 100%; position: absolute; }
+div.rangeSlider .rangeSlider__fill { z-index: 2; background-color: #F95959; height: inherit; position: absolute; }
 
-div.rangeSlider .rangeSlider__handle { z-index: 3; background-color: #F95959; width: 12px; height: 12px; top: -4px; border: none; border-radius: 50%; position: absolute; opacity: 0; transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1); }
+div.rangeSlider .rangeSlider__handle { z-index: 3; background-color: #F95959; width: 12px; height: 12px; transform: translateY(-33.333%); border: none; border-radius: 50%; position: absolute; opacity: 0; transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1); }
 
 div.rangeSlider .rangeSlider__handle:after { display: none; }
 
+div.rangeSlider .rangeSlider__buffer { width: 100%; height: inherit; background-color: white; }
+
 div.rangeSlider:hover .rangeSlider__handle, div.rangeSlider .rangeSlider__handle:hover { opacity: 1; }
 
-div.rangeSlider:active .rangeSlider__handle, div.rangeSlider .rangeSlider__handle:active { opacity: 1; transform: scale(1.2); }
+div.rangeSlider:active .rangeSlider__handle, div.rangeSlider .rangeSlider__handle:active { opacity: 1; transform: translateY(-33.333%) scale(1.2); }
 
 section.music-player { height: 52px; width: 100%; position: fixed; bottom: 0; z-index: 30; }
 
@@ -82,11 +84,11 @@ section.music-player div.controls div.middle .play-pause.playing { background-im
 
 section.music-player div.controls section.volume { width: 148px; padding-left: 10px; height: 100%; position: absolute; right: 0px; }
 
-section.music-player div.controls section.volume .volume-slider { opacity: 0; width: 100px; left: 10px; top: 50%; transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1); transform: translateY(-50%) translateX(20%) scaleX(0.75); }
+section.music-player div.controls section.volume .volume-slider { padding: 22px 0px; opacity: 0; width: 100px; left: 10px; top: 50%; transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1); transform: translateY(-50%) translateX(20%) scaleX(0.75); }
 
-section.music-player div.controls section.volume .volume-slider .rangeSlider__handle { opacity: 1; width: 8px; height: 8px; top: -2px; transform: scale(2.25, 1.5); }
+section.music-player div.controls section.volume .volume-slider .rangeSlider__handle { opacity: 1; width: 8px; height: 8px; transform: translateY(-25%) scale(2, 1.5); }
 
-section.music-player div.controls section.volume .volume-slider:active .rangeSlider__handle, section.music-player div.controls section.volume .volume-slider .rangeSlider__handle:active { transform: scale(1.8); }
+section.music-player div.controls section.volume .volume-slider:active div.rangeSlider__handle, section.music-player div.controls section.volume .volume-slider div.rangeSlider__handle:active { transform: translateY(-25%) scale(1.8); }
 
 section.music-player div.controls section.volume .volume-icon { background-position: center; background-repeat: no-repeat; width: 48px; height: 48px; position: absolute; cursor: pointer; transition: opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1); opacity: 1; background-size: 24px; background-position-x: 12px; right: 0px; }
 
@@ -100,6 +102,6 @@ section.music-player div.controls section.volume .volume-icon.low { background-i
 
 section.music-player div.controls section.volume .volume-icon.off { background-image: url("/cdn/icons/volume-off.png"); }
 
-section.music-player div.controls section.volume:hover div.volume-slider { transform: translateY(-50%); opacity: 1; }
+section.music-player div.controls section.volume:hover .volume-slider, section.music-player div.controls section.volume:active .volume-slider { transform: translateY(-50%); opacity: 1; }
 
-section.music-player div.controls section.volume:hover div.volume-slider .rangeSlider__handle { transform: scale(1.5); }
+section.music-player div.controls section.volume:hover .volume-slider .rangeSlider__handle, section.music-player div.controls section.volume:active .volume-slider .rangeSlider__handle { transform: translateY(-25%) scale(1.5); }
