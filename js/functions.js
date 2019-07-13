@@ -52,6 +52,7 @@
 		e.preventDefault();
         $(document).on("mousemove", function(e){
 			e.pageX += 5;
+			if (e.pageX < 10) {e.pageX = 10}
         	$(".admin > .menu").css("width", e.pageX);
         	$(".admin > .main").css("width", "calc(100% - "+e.pageX+"px)" );
 		});

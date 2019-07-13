@@ -8,16 +8,31 @@ section.admin
 		background-color: $c-accent-contrast
 		width: 250px
 		position: relative
+		overflow: hidden
 		.track
 			padding: 0px 10px
+			white-space: nowrap
 			.title
 				padding-top: 10px
+				white-space: nowrap
 			.artist
+				white-space: nowrap
 				padding-bottom: 10px
 				font-size: 14px
 				color: $c-text-gray
+			&::after
+				content: ""
+				position: absolute
+				width: 20px
+				height: 55px
+				right: 0px
+				transform: translateY(-100%)
+				pointer-events: none
+				background: linear-gradient(to right, transparent, $c-accent-contrast 50%)
 			&:hover
 				background-color: rgba($c-contrast, 0.1)
+				&::after
+					background: linear-gradient(to right, transparent, $c-accent-contrast-highlight 50%)
 		.drag-bar
 			position: absolute
 			right: 0px
